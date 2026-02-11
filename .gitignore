@@ -1,0 +1,73 @@
+# Arquivos sensíveis / segredos
+# ------------------------------------------------------------
+# Env (Vite/Node/Python/etc)
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.sample
+
+# Credenciais comuns
+.npmrc
+.pypirc
+
+# Chaves/certificados
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Android signing / config local
+**/key.properties
+**/local.properties
+
+# Artefatos de build (podem embutir configs como URLs/IPs)
+**/dist-web/
+**/dist-electron*/
+**/dev-dist/
+**/android/app/build/
+**/android/build/
+**/build/
+
+# Releases/instaladores (melhor anexar como GitHub Release, não versionar)
+releases/
+**/releases/
+*.apk
+*.aab
+*.exe
+*.msi
+*.blockmap
+
+# Binários/copias empacotadas (geradas em build)
+**/print-bin/
+
+# Saídas geradas / dados locais
+*.db
+*.sqlite
+*.sqlite3
+cache.db
+GerarEan13/*.png
+EtiquetasEx/dist/
+
+# Secrets variados
+*secrets*
+*secret*
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependências / ambientes locais
+**/node_modules/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+

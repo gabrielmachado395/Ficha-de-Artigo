@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-label: 11px;
+  --font-input: 14px;
+  --font-title: 18px;
+
+  --app-bg: #0b1220;
+  --surface-bg: rgba(255, 255, 255, 0.10);
+  --surface-bg-hover: rgba(255, 255, 255, 0.14);
+  --surface-border: rgba(255, 255, 255, 0.15);
+  --surface-shadow: rgba(0, 0, 0, 0.20);
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.65);
+  --placeholder: rgba(255, 255, 255, 0.50);
+
+  --input-bg: rgba(255, 255, 255, 0.10);
+  --input-bg-focus: rgba(255, 255, 255, 0.15);
+  --input-border: rgba(255, 255, 255, 0.12);
+  --input-border-focus: rgba(255, 255, 255, 0.25);
+
+  --pill-bg: rgba(255, 255, 255, 0.25);
+  --pill-shadow: rgba(0, 0, 0, 0.20);
+
+  --focus-ring: rgba(255, 255, 255, 0.70);
+  --ring-offset: #1f2937;
+}
+
+/* Tema acessível para APK (alto contraste, tons de branco/cinza) */
+.apk {
+  --font-label: 13px;
+  --font-input: 16px;
+  --font-title: 20px;
+
+  --app-bg: #f3f4f6;
+  --surface-bg: #eef2f7; /* bloco cinza claro */
+  --surface-bg-hover: #e5eaf2;
+  --surface-border: #cbd5e1;
+  --surface-shadow: rgba(15, 23, 42, 0.12);
+
+  --text: #111827; /* cinza bem escuro */
+  --muted: #374151;
+  --placeholder: #6b7280;
+
+  --input-bg: #ffffff; /* inputs brancos */
+  --input-bg-focus: #ffffff;
+  --input-border: #cbd5e1;
+  --input-border-focus: #64748b;
+
+  --pill-bg: #ffffff; /* aba ativa */
+  --pill-shadow: rgba(15, 23, 42, 0.10);
+
+  --focus-ring: rgba(17, 24, 39, 0.35);
+  --ring-offset: #f3f4f6;
+}
+
+.app-shell {
+  background: linear-gradient(to bottom, #9bacc1, #677993, #1a2c44);
+}
+
+.apk .app-shell {
+  background: var(--app-bg);
+}
+
+/* Scrollbar minimalista (Chrome/Edge/Safari) */
+.scrollbar-min::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.scrollbar-min::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.5);
+  border-radius: 999px;
+  border: 2px solid transparent; /* cria “folga” e deixa mais fina */
+  background-clip: content-box;
+}
+

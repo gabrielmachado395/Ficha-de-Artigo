@@ -1,0 +1,13 @@
+{
+  "appId": "com.gabri.fichadeartigo",
+  "appName": "Ficha de Artigo",
+  "webDir": "dist-web",
+  "server": {
+    "androidScheme": "http",
+    "allowNavigation": [
+      "168.190.90.2",
+      "168.190.90.2:5000",
+      "*"
+    ]
+  }
+}

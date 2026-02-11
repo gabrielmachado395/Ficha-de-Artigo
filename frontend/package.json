@@ -1,0 +1,105 @@
+{
+  "description": "App de etiquetas",
+  "author": "Etiquetas",
+  "build": {
+    "compression": "maximum",
+    "directories": {
+      "output": "dist-electron6"
+    },
+    "artifactName": "${productName}-Setup-${version}.${ext}",
+    "appId": "com.gabri.fichadeartigo",
+    "productName": "Ficha de Artigo",
+    "copyright": "Copyright (c) 2026 Ficha de Artigo",
+    "files": [
+      "electron/**",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "dist-web",
+        "to": "dist-web"
+      },
+      {
+        "from": "print-bin",
+        "to": "print-bin"
+      }
+    ],
+    "electronLanguages": [
+      "pt-BR",
+      "en-US"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico"
+    }
+  },
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.2",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:host": "vite --host",
+    "build": "vite build",
+    "build:android": "vite build --mode android",
+    "preview": "vite preview",
+    "preview:host": "vite preview --host",
+    "serve:tablet": "node scripts/tablet-server.cjs",
+    "android:icons": "node scripts/generate-android-icons.cjs",
+    "android:sync": "npm run android:icons && npm run build:android && npx cap sync android",
+    "android:apk:debug": "npm run android:sync && powershell -NoProfile -Command \"Push-Location android; .\\gradlew.bat assembleDebug; Pop-Location\"",
+    "android:doctor": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\android-doctor.ps1",
+    "printer:test": "node scripts/printer-tcp-test.mjs",
+    "printer:scan": "node scripts/printer-port-scan.mjs",
+    "electron:dev": "node electron/generate-icon.cjs && node electron/copy-print-cli.cjs && concurrently -k \"npm run dev\" \"wait-on http://localhost:5173 && electron . --dev\"",
+    "electron:build": "node electron/generate-icon.cjs && node electron/copy-print-cli.cjs && npm run build && electron-builder"
+  },
+  "dependencies": {
+    "@capacitor/core": "^8.0.2",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.7",
+    "express": "^4.19.2",
+    "http-proxy-middleware": "^3.0.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.0.2",
+    "@capacitor/cli": "^8.0.2",
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.23",
+    "concurrently": "^9.2.1",
+    "electron": "^40.1.0",
+    "electron-builder": "^26.4.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "png-to-ico": "^2.1.8",
+    "postcss": "^8.5.6",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.19",
+    "vite": "^7.2.4",
+    "vite-plugin-pwa": "^1.2.0",
+    "wait-on": "^9.0.3"
+  },
+  "main": "electron/main.cjs"
+}
